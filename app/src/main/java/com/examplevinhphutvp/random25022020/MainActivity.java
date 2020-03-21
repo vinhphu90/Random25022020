@@ -4,23 +4,24 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.Random;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     EditText mEdtSomin,mEdtSomax;
     Button mBtnRandom;
     TextView mTvketqua;
-    String mTxtmin,mTxtmax;
-    int mSmin,mSmax;
     String mTextmin,mTextmax;
-    int mSmin2,mSmax2,mValue;
+    int mSmin,mSmax,mValue;
     Random mRandom;
+    String mTvValue = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,21 +33,41 @@ public class MainActivity extends AppCompatActivity {
         mBtnRandom = findViewById(R.id.BtnRandom);
         mTvketqua = findViewById(R.id.tvKetqua);
 
+        // Khai bao mang
+        ArrayList<Integer> arrayNumber = new ArrayList<>();
+
+        // Thêm dữ liệu
+        arrayNumber.add(10); // index = 0
+        arrayNumber.add(9); // index = 1
+        arrayNumber.add(8); // index = 2
+
+        // Lay kích thước mảng
+//        Log.d("BBB",String.valueOf(arrayNumber.size()));
+
+        // Lấy giá trị phần tử theo vị trí
+//        Log.d("BBB",String.valueOf(arrayNumber.get(0)));
+
+        // xóa
+//        arrayNumber.remove(0);
+//        Log.d("BBB",String.valueOf(arrayNumber.get(0)));
+
+        // Sửa
+        arrayNumber.set(0,1);
+        Log.d("BBB",String.valueOf(arrayNumber.get(0)));
+
+
         mBtnRandom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mTextmin = mEdtSomin.getText().toString();
-                mTxtmax = mEdtSomax.getText().toString();
                 mTextmax = mEdtSomax.getText().toString();
 
-                if (!mTextmin.equals("") || !mTxtmax.equals("")) {
                     if (mTextmin.equals("") || mTextmax.equals("")) {
                         Toast.makeText(MainActivity.this, "Bạn nhập thiếu thông tin", Toast.LENGTH_SHORT).show();
                         return;
                     }
 
                     mSmin = Integer.parseInt(mTextmin);
-                    mSmax = Integer.parseInt(mTxtmax);
                     mSmax = Integer.parseInt(mTextmax);
 
                     // Viet dieu kien theo if else
@@ -64,9 +85,13 @@ public class MainActivity extends AppCompatActivity {
                     mValue = mRandom.nextInt(mSmax - mSmin + 1) + mSmin;
 
                     mTvketqua.setText(String.valueOf(mValue));
+                    //                mTvValue += mValue + " - ";
+//                "" + 5 = > "5"
+//                        "5" + "6" = "56"
+                    mTvketqua.append(mValue + " - ");
 
                 }
-            }
+
         });
 
 
