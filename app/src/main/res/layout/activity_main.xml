@@ -20,7 +20,7 @@
        android:layout_marginTop="30dp"
        android:maxLength="6"
        android:layout_below="@id/tex1"
-       android:id="@+id/edittextMin"
+       android:id="@+id/edtSomin"
        android:imeOptions="actionNext"
        android:inputType="number"
        android:hint="nhập số min"
@@ -29,15 +29,15 @@
     <EditText
         android:maxLength="6"
         android:layout_marginTop="30dp"
-        android:layout_below="@id/edittextMin"
-        android:id="@+id/edittextMax"
+        android:layout_below="@id/edtSomin"
+        android:id="@+id/edtSomax"
         android:imeOptions="actionNext"
         android:inputType="number"
         android:hint="nhập số max"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <Button
-        android:layout_below="@id/edittextMax"
+        android:layout_below="@id/edtSomax"
         android:id="@+id/BtnRandom"
         android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
